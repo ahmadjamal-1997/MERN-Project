@@ -1,5 +1,6 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+
 const UserSchema = new mongoose.Schema({
     firstName: {
         type: String,
@@ -16,7 +17,6 @@ const UserSchema = new mongoose.Schema({
             validator: val => /^([\w-\.]+@([\w-]+\.)+[\w-]+)?$/.test(val),
             message: "Please enter a valid email"
         }
-
     },
     password: {
         type: String,
@@ -25,11 +25,9 @@ const UserSchema = new mongoose.Schema({
     }
 }, { timestamps: true });
 
-// add this after UserSchema is defined
 UserSchema.virtual('confirmPassword')
     .get(() => this._confirmPassword)
     .set(value => this._confirmPassword = value);
-
 
 UserSchema.pre('validate', function (next) {
     if (this.password !== this.confirmPassword) {
@@ -38,8 +36,6 @@ UserSchema.pre('validate', function (next) {
     next();
 });
 
-// near the top is a good place to group our imports
-// this should go after 
 UserSchema.pre('save', function (next) {
     bcrypt.hash(this.password, 10)
         .then(hash => {
@@ -48,4 +44,4 @@ UserSchema.pre('save', function (next) {
         });
 });
 
-module.exports.User = mongoose.model("User", UserSchema);
+module.exports.User = mongoose.model('User', UserSchema);
