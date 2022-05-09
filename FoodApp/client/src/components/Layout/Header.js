@@ -18,6 +18,7 @@ const Header = (props) => {
       <h1>Foodify</h1>
       <HeaderCatButton onClick={props.onShowCart} />
       <button onClick={e => logout(e)} className='btn btn-light mb-2'>Logout</button>
+      <button onClick={() => navigate("/meals/new")} className='btn btn-light mb-2'>Add Meal</button>
     </header>
     <div className={classes['main-image']}>
       <img src={mealsImage} alt='food' />

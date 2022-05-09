@@ -6,11 +6,11 @@ module.exports.index = (request, response) => {
 }
 // The method below is new
 module.exports.createMeal = (request, response) => {
-    const { title, date, status} = request.body;
+    const { name, desc, price} = request.body;
     Meal.create({
-        title,
-        date,
-        status,
+        name,
+        desc,
+        price,
     })
         .then(meal => response.json(meal))
         .catch(err => response.status(400).json(err))

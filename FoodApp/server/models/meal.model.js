@@ -1,19 +1,18 @@
 const mongoose = require('mongoose');
 const MealSchema = new mongoose.Schema({
-    title: {
+    name: {
         type: String,
-        required: [true, "Title is required"],
-        unique: [true, "Task should be Unique"],
-        minlength: [3, "Title should be at least 3 characters"]
+        required: [true, "Meal name is required"],
+        minlength: [3, "Meal name should be 3 characters at least"]
     },
-    date: {
-        type: Date,
-        required: [true, "Date is required"],
-        min: [new Date(), "Date should be in the future"],
-    },
-    status: {
+    desc: {
         type: String,
-        default: "To Do",
+        required: [true, "Description is required"],
+    },
+    price: {
+        type: Number,
+        required: [true, "Price is required"],
+        min: [0, "Price must be greater than zero"]
     }
 
 }, { timestamps: true });
