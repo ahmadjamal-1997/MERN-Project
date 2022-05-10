@@ -7,5 +7,8 @@ module.exports = function (app) {
     app.put('/api/meals/:id', mealController.updateMeal);
     app.delete('/api/meals/:id', mealController.deleteMeal);
 
+    app.post('/api/meals/adduser', mealController.addUserToMeal);
+
+
 
 }

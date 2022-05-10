@@ -22,7 +22,18 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: [true, "Password is required"],
         minlength: [8, "Password must be 8 characters or longer"]
-    }
+    },
+    role: {
+        type: String,
+        default: "user"
+    },
+    orders: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Meal"
+        }
+    ]
+
 }, { timestamps: true });
 
 UserSchema.virtual('confirmPassword')

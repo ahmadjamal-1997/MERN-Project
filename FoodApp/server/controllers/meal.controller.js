@@ -6,7 +6,7 @@ module.exports.index = (request, response) => {
 }
 // The method below is new
 module.exports.createMeal = (request, response) => {
-    const { name, desc, price} = request.body;
+    const { name, desc, price } = request.body;
     Meal.create({
         name,
         desc,
@@ -28,16 +28,24 @@ module.exports.getMeal = (request, response) => {
         .catch(err => response.json(err))
 }
 
-module.exports.updateMeal= (request, response) => {
-    Meal.findOneAndUpdate({_id: request.params.id}, request.body, {new:true})
+module.exports.updateMeal = (request, response) => {
+    Meal.findOneAndUpdate({ _id: request.params.id }, request.body, { new: true })
         .then(updatedMeal => response.json(updatedMeal))
         .catch(err => response.json(err))
 }
 
 module.exports.deleteMeal = (request, response) => {
     Meal.deleteOne({ _id: request.params.id })
-        .then(deleteConfirmation => response.json(deleteConfirmation))
-        .catch(err => response.json(err))
+        .then(deleteConfirmation => response.json(deleteConfirmation))
+        .catch(err => response.json(err))
 }
+
+module.exports.addUserToMeal = (mealId, user) => {
+    Meal.findByIdAndUpdate(
+        mealId,
+        { $push: { users: user._id } },
+        { new: true, useFindAndModify: false }
+    )
+};
 
 

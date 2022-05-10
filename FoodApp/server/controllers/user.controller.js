@@ -70,3 +70,11 @@ module.exports.getUser = (request, response) => {
         .catch(err => response.json(err))
 }
 
+module.exports.addMealToUser = (userId, meal) => {
+    User.findByIdAndUpdate(
+        userId,
+        { $push: { meals: meal._id } },
+        { new: true, useFindAndModify: false }
+    )
+};
+
