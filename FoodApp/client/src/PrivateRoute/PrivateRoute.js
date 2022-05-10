@@ -20,7 +20,7 @@ const PrivateRoute = (props) => {
     <>
     {
       loaded &&
-      (loggedInStatus ? children : <Navigate to={"/logreg"} />)
+      (loggedInStatus ? children : <Navigate to={"/main"} />)
     }
     </>
     

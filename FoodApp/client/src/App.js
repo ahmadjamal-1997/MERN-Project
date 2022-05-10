@@ -22,9 +22,9 @@ function App() {
   }
   return (
     <>
-
       <BrowserRouter>
         <Routes>
+          <Route path="/Main" element={<Main />} />
           <Route path="/logreg" element={<LogReg />} />
 
           <Route path="/"

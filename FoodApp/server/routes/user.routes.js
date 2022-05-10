@@ -5,4 +5,5 @@ module.exports = app => {
     app.post("/api/login", Users.Login);
     app.get("/api/logout", Users.logout);
     app.get("/api/logreg", Users.checkLoggedIn);
+    app.get("/api/user/:id", Users.getUser);
 }

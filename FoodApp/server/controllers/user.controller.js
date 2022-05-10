@@ -54,11 +54,19 @@ module.exports.logout = (req, res) => {
 
 module.exports.checkLoggedIn = (req, res) => {
     if ("usertoken" in req.cookies) {
+        const {id} = jwt.verify(req.cookies.usertoken, 'SECRET_KEY');
         res.json({
             loggedInStatus: true,
+            userId: id
         });
     } else {
         res.json({ loggedInStatus: false });
     }
 };
+
+module.exports.getUser = (request, response) => {
+    User.findOne({ _id: request.params.id })
+        .then(user => response.json(user))
+        .catch(err => response.json(err))
+}
 
