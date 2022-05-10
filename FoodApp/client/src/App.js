@@ -8,7 +8,8 @@ import LogReg from './components/LogReg/LogReg';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import MealForm from './components/AddMeal/MealForm';
-
+import UpdateMeal from './components/UpdateMeal/UpdateMeal';
+import Main from './components/Layout/Main'
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
 
@@ -44,11 +45,19 @@ function App() {
               <MealForm />
             </PrivateRoute>
           } />
+          <Route path="/main" element={
+            
+              <Main />
+            
+          } />
 
 
           {/* <Route path="/projects/new" element={<PrivateRoute>
             <ProjectForm />
           </PrivateRoute>} /> */}
+          <Route path="/update/:id" element={<PrivateRoute>
+              <UpdateMeal />
+            </PrivateRoute>}/>
 
         </Routes>
       </BrowserRouter>
