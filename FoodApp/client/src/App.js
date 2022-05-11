@@ -10,6 +10,8 @@ import PrivateRoute from './PrivateRoute/PrivateRoute';
 import MealForm from './components/AddMeal/MealForm';
 import UpdateMeal from './components/UpdateMeal/UpdateMeal';
 import Main from './components/Layout/Main'
+import RegForm from './components/LogReg/RegForm';
+import LoginForm from './components/LogReg/LoginForm';
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
 
@@ -25,8 +27,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/Main" element={<Main />} />
-          <Route path="/logreg" element={<LogReg />} />
-
+          <Route path="/register" element={<LogReg />} />
           <Route path="/"
             element={
               <PrivateRoute>

@@ -19,7 +19,7 @@ const MealItem = (props) => {
     };
     return <li className={classes.meal}>
         <div>
-            <h3><Link to={"/update/" + props.id}>{props.name}</Link></h3>
+            <h3><Link style={{color:'rgb(38 154 53)', textDecoration: 'none'}} to={"/update/" + props.id}>{props.name}</Link></h3>
             <div className={classes.description}>{props.description}</div>
             <div className={classes.price}>{price}</div>
         </div>

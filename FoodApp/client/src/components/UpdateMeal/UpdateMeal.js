@@ -84,13 +84,13 @@ const UpdateMeal = () => {
     }
 
     return (
-
+        <div style={{backgroundImage:"url(https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80)", backgroundRepeat:"no-repeat", backgroundSize:"cover", height:"800px"}}>
         <div className='container'>
-            
-            <div className='row justify-content-center  border p-3'>
-                <div className='col-md-6'>
+            <div className='row justify-content-center p-3'>
+                <div className='col-md-7'></div>
+                <div className='col-md-5'>
                     <form onSubmit={onSubmitHandler} >
-                        <h4>Edit your meal</h4>
+                        <h4 className='my-5'>Edit your meal</h4>
                         <div>
                             {"name" in error && (<div id="nameMsg" className="form-text" style={{ color: 'red' }}>{error.name.message} </div>)}
                             <div id="nameMsg" className="form-text" style={nameMsg === "Looks Perfect!" ? { color: 'green' } : { color: 'red' }}>{nameMsg} </div>
@@ -137,6 +137,7 @@ const UpdateMeal = () => {
                 </div>
             </div>
         </div>
+    </div>
     )
 }
 
