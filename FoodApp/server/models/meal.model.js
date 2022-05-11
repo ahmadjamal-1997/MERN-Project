@@ -13,7 +13,14 @@ const MealSchema = new mongoose.Schema({
         type: Number,
         required: [true, "Price is required"],
         min: [0, "Price must be greater than zero"]
-    }
+    },
+    buyers: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
+        }
+    ]
+
 
 }, { timestamps: true });
 module.exports.Meal = mongoose.model('Meal', MealSchema);
