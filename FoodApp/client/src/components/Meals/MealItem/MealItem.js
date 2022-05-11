@@ -9,6 +9,7 @@ const MealItem = (props) => {
     const cartCtx = useContext(CartContext);
 
     const addToCartHandler = amount => {
+        console.log(props.id);
         cartCtx.addItem({
             id: props.id,
             name: props.name,
